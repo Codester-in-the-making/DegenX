@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Copy token address functionality
+    const copyButton = document.getElementById('copy-button');
+    const tokenAddress = document.getElementById('token-address');
+
+    copyButton.addEventListener('click', function() {
+        navigator.clipboard.writeText(tokenAddress.textContent)
+            .then(() => {
+                // Visual feedback
+                const originalText = copyButton.textContent;
+                copyButton.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyButton.textContent = originalText;
+                }, 2000);
+            })
+            .catch(err => {
+                console.error('Failed to copy:', err);
+            });
+    });
+
     // Initialize Supabase client
     const SUPABASE_URL = 'https://rvthcmcucsfwaziqwhqs.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ2dGhjbWN1Y3Nmd2F6aXF3aHFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2OTQyMTMsImV4cCI6MjA2MzI3MDIxM30.bkKe5lqZVx26qVyTcsz1Orxh3VUzfK-Ci2xlj4XrxdI';
@@ -74,6 +93,9 @@ document.addEventListener('DOMContentLoaded', function() {
             form.classList.add('hidden');
             successMessage.classList.remove('hidden');
 
+            // Add a class to the container to remove scrollbar
+            document.querySelector('.container').classList.add('success-view');
+
         } catch (err) {
             console.error('Unexpected error:', err);
             alert('There was an unexpected error. Please try again.');
@@ -91,5 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
         form.classList.remove('hidden');
         submitBtn.disabled = false;
         submitBtn.textContent = 'Submit Degen Confession';
+
+        // Remove the success-view class from container
+        document.querySelector('.container').classList.remove('success-view');
     });
 });
