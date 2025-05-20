@@ -1,0 +1,201 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-color: #191919;
+    --text-color: #e0e0e0;
+    --primary-color: #ff6b35;
+    --secondary-color: #2d2d2d;
+    --accent-color: #f5c518;
+    --success-color: #53dd6c;
+    --form-bg: #2d2d2d;
+    --border-color: #444;
+}
+
+body {
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+    background-image: url('background.png');
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(25, 25, 25, 0.6);
+    z-index: -1;
+}
+
+
+
+
+
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #2d2d2d;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--accent-color);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(245, 197, 24, 0.5);
+    letter-spacing: 1px;
+}
+
+.description {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    opacity: 0.9;
+    font-family: monospace;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+#char-count {
+    float: right;
+    font-weight: normal;
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--accent-color);
+    border-radius: 4px;
+    background-color: rgba(40, 40, 40, 0.8);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 12px var(--primary-color), inset 0 0 5px rgba(0, 0, 0, 0.5);
+    transform: scale(1.01);
+    background-color: rgba(45, 45, 45, 0.9);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
+button {
+    cursor: pointer;
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid #ff8b55;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    box-shadow: 0 4px 0 #c43e00, 0 0 10px rgba(255, 107, 53, 0.5);
+    position: relative;
+    top: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+    background-color: #ff8b55;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #c43e00;
+    top: 2px;
+}
+
+#submit-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+#success-message {
+    text-align: center;
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#success-message h2 {
+    color: var(--success-color);
+    margin-bottom: 15px;
+}
+
+#new-confession-btn {
+    margin-top: 20px;
+    background-color: var(--success-color);
+}
+
+#new-confession-btn:hover {
+    background-color: #218838;
+}
+
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    input[type="text"],
+    textarea {
+        padding: 10px;
+    }
+}
