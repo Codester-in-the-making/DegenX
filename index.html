@@ -11,8 +11,11 @@
 <body>
     <div class="container">
         <h1>$DEGEN CONFESSIONS</h1>
-        <p class="description">Share your thoughts anonymously. All submissions are published immediately.</p>
-        <p class="description">Confessions will be randomly shared on $degen's official X account which is @ogdegenonsol</p>
+        <div class="token-ca">
+            <span id="token-address">6ztpBm31cmBNPwa396ocmDfaWyKKY95Bu8T664QfCe7f</span>
+            <button id="copy-button" title="Copy to clipboard">Copy</button>
+        </div>
+        <p class="description">Confessions will be randomly shared on $degen's official X account which is <a href="https://x.com/ogdegenonsol" target="_blank" class="x-link">@ogdegenonsol</a></p>
 
         <form id="confession-form">
             <div class="form-group">
@@ -21,8 +24,8 @@
             </div>
 
             <div class="form-group">
-                <label for="confession">Your Confession <span id="char-count">0/1000</span></label>
-                <textarea id="confession" name="confession" placeholder="Share your confession here..." maxlength="1000" required></textarea>
+                <label for="confession">Your Confession <span id="char-count">0/20000</span></label>
+                <textarea id="confession" name="confession" placeholder="Share your confession here..." maxlength="20000" required></textarea>
             </div>
 
 
@@ -34,8 +37,13 @@
             <h2>Thank You!</h2>
             <p>Your confession has been published successfully.</p>
             <button id="new-confession-btn">Submit Another Confession</button>
+            
+            <div class="game-promo">
+                <a href="https://jeetsvsdegens.com/" target="_blank" class="game-link">
+                    <span class="blink">🎮</span> How about you play our game now?? <span class="blink">🎮</span>
+                </a>
+            </div>
         </div>
-
 
     </div>
 

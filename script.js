@@ -42,10 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle text area character count and auto-resize
     confessionTextarea.addEventListener('input', function() {
         const currentLength = this.value.length;
-        charCount.textContent = `${currentLength}/1000`;
+        charCount.textContent = `${currentLength}/20,000`;
 
         // Visual feedback as user approaches limit
-        if (currentLength >= 900) {
+        if (currentLength >= 19000) {
             charCount.style.color = '#db3a34';
         } else {
             charCount.style.color = '';
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Submit another confession button
     newConfessionBtn.addEventListener('click', function() {
         form.reset();
-        charCount.textContent = '0/1000';
+        charCount.textContent = '0/20,000';
         charCount.style.color = '';
         successMessage.classList.add('hidden');
         form.classList.remove('hidden');
