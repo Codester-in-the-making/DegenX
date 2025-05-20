@@ -4,6 +4,11 @@
     padding: 0;
 }
 
+html {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 :root {
     --bg-color: #191919;
     --text-color: #e0e0e0;
@@ -26,6 +31,8 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    overflow: hidden;
+    height: 100vh;
 }
 
 body::before {
@@ -44,6 +51,7 @@ body::before {
 
 
 .container {
+    width: 100%;
     max-width: 700px;
     margin: 40px auto;
     padding: 30px;
@@ -51,6 +59,9 @@ body::before {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
     border: 2px solid var(--accent-color);
+    box-sizing: border-box;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 h1 {
@@ -103,8 +114,11 @@ textarea {
 }
 
 textarea {
-    min-height: 200px;
-    resize: vertical;
+    height: 200px;
+    min-height: 100px;
+    resize: none;
+    overflow: hidden;
+    transition: height 0.2s ease;
 }
 
 input[type="text"]:focus,
@@ -192,10 +206,17 @@ button:hover {
     .container {
         padding: 15px;
         margin: 20px auto;
+        max-height: 85vh;
     }
 
     input[type="text"],
     textarea {
         padding: 10px;
+    }
+
+    body {
+        height: 100%;
+        position: fixed;
+        width: 100%;
     }
 }

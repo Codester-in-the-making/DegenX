@@ -5,35 +5,47 @@ document.addEventListener('DOMContentLoaded', function() {
     const submitBtn = document.getElementById('submit-btn');
     const successMessage = document.getElementById('success-message');
     const newConfessionBtn = document.getElementById('new-confession-btn');
-    
-    // Handle text area character count
+
+    // Function to auto-resize textarea
+    function autoResizeTextarea() {
+        confessionTextarea.style.height = 'auto';
+        confessionTextarea.style.height = (confessionTextarea.scrollHeight) + 'px';
+    }
+
+    // Initialize textarea height
+    autoResizeTextarea();
+
+    // Handle text area character count and auto-resize
     confessionTextarea.addEventListener('input', function() {
         const currentLength = this.value.length;
         charCount.textContent = `${currentLength}/1000`;
-        
+
         // Visual feedback as user approaches limit
         if (currentLength >= 900) {
             charCount.style.color = '#db3a34';
         } else {
             charCount.style.color = '';
         }
+
+        // Auto-resize the textarea
+        autoResizeTextarea();
     });
-    
+
     // Form submission
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         // Get form data
         const nickname = document.getElementById('nickname').value || 'Anonymous';
         const confession = confessionTextarea.value;
-        
+
         // Here you would normally send data to your backend
         console.log('Submission:', { nickname, confession });
-        
+
         // Show success message
         form.classList.add('hidden');
         successMessage.classList.remove('hidden');
-        
+
         // Optional: Store in localStorage for demo purposes
         const submissions = JSON.parse(localStorage.getItem('confessions') || '[]');
         submissions.push({
@@ -44,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         localStorage.setItem('confessions', JSON.stringify(submissions));
     });
-    
+
     // Submit another confession button
     newConfessionBtn.addEventListener('click', function() {
         form.reset();
@@ -53,6 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
         successMessage.classList.add('hidden');
         form.classList.remove('hidden');
     });
-    
+
 
 });
