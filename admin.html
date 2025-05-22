@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$Degen Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        .admin-container {
+            max-width: 900px;
+        }
+        
+        #confession-list {
+            margin-top: 20px;
+        }
+        
+        .confession-item {
+            background-color: #333;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .confession-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            color: var(--accent-color);
+        }
+        
+        .confession-text {
+            margin-bottom: 15px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            border-left: 2px solid #555;
+            padding-left: 10px;
+            line-height: 1.4;
+        }
+        
+        .confession-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            padding: 8px 12px;
+            font-size: 0.7rem;
+            min-width: 80px;
+        }
+        
+        .delete-btn {
+            background-color: #d32f2f;
+            border-color: #b71c1c;
+            box-shadow: 0 4px 0 #7f0000;
+        }
+        
+        .delete-btn:hover {
+            background-color: #f44336;
+            box-shadow: 0 2px 0 #7f0000;
+        }
+        
+        .approve-btn {
+            background-color: #388e3c;
+            border-color: #2e7d32;
+            box-shadow: 0 4px 0 #1b5e20;
+        }
+        
+        .approve-btn:hover {
+            background-color: #4caf50;
+            box-shadow: 0 2px 0 #1b5e20;
+        }
+        
+        .copy-btn {
+            background-color: #1976d2;
+            border-color: #1565c0;
+            box-shadow: 0 4px 0 #0d47a1;
+        }
+        
+        .copy-btn:hover {
+            background-color: #2196f3;
+            box-shadow: 0 2px 0 #0d47a1;
+        }
+        
+        .approved {
+            border-left: 4px solid #4caf50;
+        }
+        
+        .refresh-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .status-count {
+            display: flex;
+            gap: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .count-item {
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: #444;
+        }
+        
+        .count-pending {
+            border-left: 3px solid var(--accent-color);
+        }
+        
+        .count-approved {
+            border-left: 3px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container admin-container">
+        <h1>$DEGEN ADMIN</h1>
+        
+        <!-- Login Form -->
+        <div id="login-container">
+            <div class="form-group">
+                <label for="password">Admin Password</label>
+                <input type="password" id="password" placeholder="Enter admin password">
+            </div>
+            <button id="login-btn">Login</button>
+        </div>
+        
+        <!-- Admin Dashboard -->
+        <div id="admin-dashboard" class="hidden">
+            <div class="refresh-container">
+                <div class="status-count">
+                    <div class="count-item count-pending">Pending: <span id="pending-count">0</span></div>
+                    <div class="count-item count-approved">Approved: <span id="approved-count">0</span></div>
+                </div>
+                <button id="refresh-btn">Refresh Confessions</button>
+            </div>
+            
+            <div id="confession-list">
+                <!-- Confessions will be loaded here -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="admin.js"></script>
+</body>
+</html>
