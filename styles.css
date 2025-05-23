@@ -78,6 +78,19 @@ h1 {
     letter-spacing: 1px;
 }
 
+.tagline {
+    text-align: center;
+    margin: 10px 0;
+    color: var(--accent-color);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    text-shadow: 0 0 10px rgba(245, 197, 24, 0.7);
+    animation: pulse 2s infinite;
+    padding: 5px;
+    font-family: 'Press Start 2P', cursive;
+}
+
 .description {
     text-align: center;
     margin-bottom: 20px;
